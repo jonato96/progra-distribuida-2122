@@ -1,0 +1,9 @@
+package com.programacion;
+
+public class AppMain {
+
+    public static void main(String[] args) {
+        System.out.println("Hola mundo desde Intellij");
+    }
+
+}

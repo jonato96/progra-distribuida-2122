@@ -1,0 +1,46 @@
+.center{
+    text-align: center;
+}
+h1 {
+    width: 100%;
+    text-align: center;
+}
+.tabla{
+    margin: 0 auto;
+    border: 2px;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+    font-family: Calibri, ui-sans-serif;
+}
+.button-register{
+    padding: 10px 40px;
+    border: 2px solid #EFF4F7;
+    border-radius: 6px;
+    background: #3498db;
+    color: #ffffff;
+}
+.button-delete{
+    padding: 10px 40px;
+    border: 2px solid #EFF4F7;
+    border-radius: 6px;
+    background: #e74c3c;
+    color: #ffffff;
+}
+
+.button-update{
+    padding: 10px 40px;
+    border: 2px solid #EFF4F7;
+    border-radius: 6px;
+    background: #2ecc71;
+    color: #ffffff;
+}
+
+.button-cancel{
+    padding: 10px 40px;
+    border: 2px solid #EFF4F7;
+    border-radius: 6px;
+    background: #f1c40f;
+    color: #ffffff;
+}

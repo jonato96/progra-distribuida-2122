@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Registrar</title>
+    <h:outputStylesheet name="/css/bootstrap.min.css"/>
+</h:head>
+<h:body>
+    <h:form id="form" class="form-horizontal">
+        <div class="form-group">
+            <h2 style="text-align: center" class="col-sm-12">
+                Ingrese los datos de la persona
+            </h2>
+        </div>
+        <hr/>
+<!--        <div class="col-sm-12" align="center">-->
+<!--            <h:outputLabel for="id" class="control-label col-sm-4">Id</h:outputLabel>-->
+<!--            <div class="col-sm-4">-->
+<!--                <h:inputText id="id" value="#{personaBean.persona.id}" class="form-control"-->
+<!--                             validatorMessage="El id es requerido">-->
+<!--                    <f:validateRequired />-->
+<!--                </h:inputText>-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="col-sm-12" align="center">
+            <h:outputLabel for="nombre" class="control-label col-sm-4">Nombre</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="nombre" value="#{personaBean.persona.nombre}" class="form-control"
+                             validatorMessage="El nombre es requerido">
+                    <f:validateRequired/>
+                </h:inputText>
+            </div>
+        </div>
+        <div class="col-sm-12" align="center">
+            <h:outputLabel for="direccion" class="control-label col-sm-4">Direccion</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="direccion" value="#{personaBean.persona.direccion}" class="form-control"
+                               validatorMessage="La direccion es obligatoria">
+                    <f:validateRequired/>
+                </h:inputText>
+            </div>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center" style="padding: 20px" align="center">
+            <h:commandButton value="Guardar" action="#{personaBean.create()}"
+                             class="btn btn-success">
+            </h:commandButton>
+            <h:link outcome="index" value="Cancelar" class="btn btn-primary" />
+
+        </div>
+    </h:form>
+</h:body>
+</html>

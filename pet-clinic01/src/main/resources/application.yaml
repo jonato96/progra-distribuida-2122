@@ -1,0 +1,11 @@
+server:
+  port: 8089
+javax:
+  sql:
+    DataSource:
+      test:
+        dataSourceClassName: org.postgresql.ds.PGSimpleDataSource
+        dataSource:
+          url: jdbc:postgresql://localhost:5432/distribuida_suple_repaso
+          user: postgres
+          password: "adminPRO96"

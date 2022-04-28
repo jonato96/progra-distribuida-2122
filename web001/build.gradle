@@ -1,0 +1,34 @@
+plugins {
+    id 'war'
+    id 'java'
+    id 'io.freefair.lombok' version "5.3.3.3"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenCentral()
+}
+
+dependencies {
+    //JAX-RS y PROXY
+    //https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-client
+    implementation group: 'org.jboss.resteasy', name: 'resteasy-client', version: '4.7.5.Final'
+    // https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jackson2-provider
+    implementation group: 'org.jboss.resteasy', name: 'resteasy-jackson2-provider', version: '4.7.4.Final'
+    //JSF
+    // https://mvnrepository.com/artifact/org.glassfish/jakarta.faces
+    implementation group: 'org.glassfish', name: 'jakarta.faces', version: '2.3.17'
+    //CDI
+    // https://mvnrepository.com/artifact/org.jboss.weld.se/weld-se-core
+    implementation group: 'org.jboss.weld.servlet', name: 'weld-servlet-core', version: '3.1.8.Final'
+
+}
+
+sourceSets{
+    main {
+        output.resourcesDir = file("${buildDir}/classes/java/main")
+    }
+}

@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'war'
+    id "io.freefair.lombok" version "6.3.0"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.1'
+
+    // https://mvnrepository.com/artifact/com.zaxxer/HikariCP
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.0'
+
+    // https://mvnrepository.com/artifact/org.apache.struts/struts2-convention-plugin
+    implementation group: 'org.apache.struts', name: 'struts2-convention-plugin', version: '2.5.28'
+
+    // https://mvnrepository.com/artifact/org.apache.struts/struts2-cdi-plugin
+    implementation group: 'org.apache.struts', name: 'struts2-cdi-plugin', version: '2.5.28'
+
+    // https://mvnrepository.com/artifact/org.jboss.weld.servlet/weld-servlet-core
+    implementation group: 'org.jboss.weld.servlet', name: 'weld-servlet-core', version: '3.1.8.Final'
+
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.16.0'
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.2'
+
+
+}

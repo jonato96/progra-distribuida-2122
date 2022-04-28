@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'io.freefair.lombok' version "5.3.3.3"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //Dependencias para la conexion a la base de datos -------------------------
+
+    //Driver para la base de datos Postgresql
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.1'
+
+    //Pool de conexion
+    // https://mvnrepository.com/artifact/com.zaxxer/HikariCP
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.1'
+    //---------------------------------------------------------------------------
+
+    //Servidor-------------------------------------------------------------------
+
+    //REST
+    // https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-core
+    implementation group: 'org.jboss.resteasy', name: 'resteasy-core', version: '4.7.4.Final'
+    // https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-servlet-initializer
+    implementation group: 'org.jboss.resteasy', name: 'resteasy-servlet-initializer', version: '4.7.4.Final'
+    // https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jackson2-provider
+    implementation group: 'org.jboss.resteasy', name: 'resteasy-jackson2-provider', version: '4.7.4.Final'
+
+    //CDI
+    // https://mvnrepository.com/artifact/org.jboss.weld.servlet/weld-servlet-core
+    implementation group: 'org.jboss.weld.servlet', name: 'weld-servlet-core', version: '3.1.8.Final'
+
+    //CDI+REST
+    implementation group: 'org.jboss.resteasy', name: 'resteasy-cdi', version: '4.7.4.Final'
+
+}
+
+sourceSets{
+    main {
+        output.resourcesDir = file("${buildDir}/classes/java/main")
+    }
+}

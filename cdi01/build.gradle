@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "6.3.0"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // https://mvnrepository.com/artifact/org.jboss.weld.se/weld-se-core
+    implementation group: 'org.jboss.weld.se', name: 'weld-se-core', version: '4.0.2.Final'
+    // https://mvnrepository.com/artifact/org.jboss.weld.se/weld-se-core
+    //implementation group: 'org.jboss.weld.se', name: 'weld-se-core', version: '3.1.8.Final'
+
+}
+
+sourceSets{
+    main{
+        output.resourcesDir = file("${buildDir}/classes/java/main")
+    }
+}

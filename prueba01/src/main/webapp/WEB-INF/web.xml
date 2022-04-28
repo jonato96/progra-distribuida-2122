@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         id="WebApp_ID" version="2.5">
+    <listener>
+        <listener-class>org.apache.webbeans.servlet.WebBeansConfigurationListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>CXFServlet</servlet-name>
+        <servlet-class>
+            org.apache.cxf.cdi.CXFCdiServlet
+        </servlet-class>
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>
+                com.programacion.RestApp
+            </param-value>
+        </init-param>
+        <!--
+           This parameter is recognized only starting from CXF 2.3.1
+           @ApplicationPath value will be ignored if this parameter is set to true
+        -->
+<!--        <init-param>-->
+<!--            <param-name>jaxrs.application.address.ignore</param-name>-->
+<!--            <param-value>true</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--            <param-name>jaxrs.providers</param-name>-->
+<!--            <param-value>org.codehaus.jackson.jaxrs.JacksonJsonProvider</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--            <param-name>jaxrs.extensions</param-name>-->
+<!--            <param-value>-->
+<!--                json=application/json-->
+<!--            </param-value>-->
+<!--        </init-param>-->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CXFServlet</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+</web-app>

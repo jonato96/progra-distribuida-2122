@@ -1,0 +1,60 @@
+plugins {
+    id 'java'
+    id 'io.freefair.lombok' version "5.3.3.3"
+    id 'war'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //Driver de postgresql
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.1'
+
+    // https://mvnrepository.com/artifact/com.zaxxer/HikariCP
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.1'
+
+    //SERVIDOR
+    //CDI
+    // https://mvnrepository.com/artifact/org.jboss.weld.se/weld-se-core
+    implementation group: 'org.jboss.weld.servlet', name: 'weld-servlet-core', version: '3.1.8.Final'
+
+    //REST
+    // https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-core
+    implementation group: 'org.jboss.resteasy', name: 'resteasy-core', version: '4.7.4.Final'
+
+    // https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-servlet-initializer
+    implementation group: 'org.jboss.resteasy', name: 'resteasy-servlet-initializer', version: '4.7.4.Final'
+
+    // https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jackson2-provider
+    implementation group: 'org.jboss.resteasy', name: 'resteasy-jackson2-provider', version: '4.7.4.Final'
+
+    //CDI+REST
+    implementation group: 'org.jboss.resteasy', name: 'resteasy-cdi', version: '4.7.4.Final'
+
+    //CLIENTE---------------
+    //CLIENTE HTTP
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.1'
+
+
+
+    //JAX-RS y PROXY
+     //https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-client
+    implementation group: 'org.jboss.resteasy', name: 'resteasy-client', version: '4.7.5.Final'
+    // https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jackson2-provider
+    implementation group: 'org.jboss.resteasy', name: 'resteasy-jackson2-provider', version: '4.7.4.Final'
+}
+
+sourceSets{
+    main {
+        output.resourcesDir = file("${buildDir}/classes/java/main")
+    }
+}

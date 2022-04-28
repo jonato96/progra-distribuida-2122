@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'io.quarkus' version '2.7.5.Final'
+    id 'io.freefair.lombok' version "5.3.3.3"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext{
+    quarkusversion = '2.7.5.Final'
+}
+
+dependencies {
+
+    //Quarkus Bom
+    implementation enforcedPlatform("io.quarkus:quarkus-universe-bom:${project.quarkusversion}")
+
+    // RestEasy IMP
+    implementation group: 'io.quarkus', name: 'quarkus-resteasy'
+
+    // Hibernate ORM specific dependencies
+    implementation group: 'io.quarkus', name: 'quarkus-hibernate-orm'
+
+    // JDBC driver dependencies
+    implementation group: 'io.quarkus', name: 'quarkus-jdbc-postgresql'
+
+    // JSON Support
+    implementation group: 'io.quarkus', name: 'quarkus-resteasy-jackson'
+
+    // Consul Config
+    implementation group: 'io.quarkus', name: 'quarkus-consul-config'
+
+    //EclipseLINK
+    // https://mvnrepository.com/artifact/org.eclipse.persistence/eclipselink
+    //implementation group: 'org.eclipse.persistence', name: 'eclipselink', version: '2.7.10'
+
+    //PG Driver
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    //implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.3'
+
+    //Consul Client Registro
+    implementation("com.orbitz.consul:consul-client:1.5.3")
+
+    implementation group: 'io.quarkus', name: 'quarkus-smallrye-health'
+
+}

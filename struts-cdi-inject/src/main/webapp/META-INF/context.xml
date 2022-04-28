@@ -1,0 +1,11 @@
+<Context>
+<!--    sirve para que extraiga el ontexto del servidor de nombre y pueda contruir el bean manager-->
+<!--    desde aqui va a ller la configuracion xml y va a poder construir el bean manager-->
+    <Resource name="BeanManager"
+              auth="Container"
+              type="javax.enterprise.inject.spi.BeanManager"
+              factory="org.jboss.weld.resources.ManagerObjectFactory"/>
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>META-INF/context.xml</WatchedResource>
+
+</Context>

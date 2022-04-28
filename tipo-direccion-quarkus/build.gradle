@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'io.quarkus' version '2.7.5.Final'
+    id 'io.freefair.lombok' version "5.3.3.3"
+}
+
+group 'com.prograacion'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext{
+    quarkusversion = '2.7.5.Final'
+}
+
+dependencies {
+    //Quarkus Bom
+    implementation enforcedPlatform("io.quarkus:quarkus-universe-bom:${project.quarkusversion}")
+
+    // RestEasy IMP
+    implementation group: 'io.quarkus', name: 'quarkus-resteasy'
+
+    // Hibernate ORM specific dependencies
+    implementation group: 'io.quarkus', name: 'quarkus-hibernate-orm'
+
+    // JDBC driver dependencies
+    implementation group: 'io.quarkus', name: 'quarkus-jdbc-postgresql'
+
+    // JSON Support
+    implementation group: 'io.quarkus', name: 'quarkus-resteasy-jackson'
+
+    /** SPRING CONFIG CLIENT**/
+    implementation("io.quarkus:quarkus-spring-cloud-config-client")
+
+}

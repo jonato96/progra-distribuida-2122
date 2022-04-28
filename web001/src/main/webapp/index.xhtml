@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <h:outputStylesheet name="/css/bootstrap.min.css"/>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <h:form>
+        Hola mundo JSF
+        <br/>
+        Contador: ${indexBean.contador}
+        <br/>
+        <h:commandButton value="Contar" action="#{indexBean.contar}"/>
+
+        <hr/>
+        <div class="leftTop">
+            <h:commandButton action = "create.xhtml?faces-redirect=true"
+                             value="Nueva Persona" class="btn btn-success">
+            </h:commandButton>
+        </div>
+        <hr/>
+        <h:dataTable value="#{indexBean.personas}" var="item" class="table table-striped table-hover table-bordered">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                <h:outputText value="${item.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:outputText value="${item.nombre}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Direccion</f:facet>
+                <h:outputText value="${item.direccion}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Opciones</f:facet>
+                <h:commandButton action = "#{indexBean.edit(item.id)}" value="Editar" class="btn btn-primary">
+                </h:commandButton>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Opciones</f:facet>
+                <h:commandButton action = "#{indexBean.delete(item.id)}" value="Eliminar" class="btn btn-danger">
+                </h:commandButton>
+            </h:column>
+        </h:dataTable>
+
+    </h:form>
+
+</h:body>
+
+</html>

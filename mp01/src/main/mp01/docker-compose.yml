@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  consul:
+    image: consul:latest
+    ports:
+      - "8500:8500"
+    environment:
+      - CONSUL_BIND_INTERFACE=eth0
+
+  traefik:
+    image: traefik:v2.6
+    command:
+      - "--api.insecure=true"
+      - "--providers.consulcatalog"
+      - "--providers.consulcatalog.endpoint.address=consul:8500"
+    ports:
+      - "80:80"
+      - "8080:8080"
+
+  distribuida:
+    image: distribuida/mp01
+    depends_on:
+      - consul
+    deploy:
+      mode: replicated
+      replicas: 2
+    environment:
+      CONSUL_IP: consul
+    labels:
+      - ""
+      - ""
+      - ""

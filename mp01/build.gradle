@@ -1,0 +1,61 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'io.quarkus' version '2.7.1.Final'
+    id 'io.freefair.lombok' version "5.3.3.3"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext{
+    //helidonversion = '2.4.2'
+    quarkusversion = '2.7.1.Final'
+}
+
+dependencies {
+    // import Helidon dependency management
+    //implementation platform("io.helidon:helidon-dependencies:${project.helidonversion}")
+    //servidor
+    //implementation 'io.helidon.microprofile.bundles:helidon-microprofile'
+    //implementation 'io.helidon.microprofile.server:helidon-microprofile-server'
+
+    implementation enforcedPlatform("io.quarkus:quarkus-universe-bom:${project.quarkusversion}")
+    implementation group: 'io.quarkus', name: 'quarkus-resteasy'
+    implementation group: 'io.quarkus', name: 'quarkus-smallrye-health'
+
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.1'
+
+    // https://mvnrepository.com/artifact/com.zaxxer/HikariCP
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.1'
+
+    //Soporte json
+    implementation group: 'io.quarkus', name: 'quarkus-resteasy-jackson'
+
+    // https://mvnrepository.com/artifact/io.quarkus/quarkus-consul-config
+    implementation group: 'io.quarkus', name: 'quarkus-consul-config'
+
+    //Consul Client registro
+    implementation("com.orbitz.consul:consul-client:1.5.3")
+
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
+
+
+
+
+}
+
+application{
+    mainClassName = 'com.programacion.Main'
+}
+
+sourceSets {
+    main {
+        output.resourcesDir = file("${buildDir}/classes/java/main")
+    }
+}
